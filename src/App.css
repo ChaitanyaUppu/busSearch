@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* App.css */
+.app {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  gap: 10px;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 10px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.search-button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.search-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.map-container {
+  flex: 1;
+  min-height: 400px;
+  width: 100%;
+}
+
+.results {
+  padding: 10px;
+  background-color: #e9ecef;
+  border-top: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .search-container {
+    flex-direction: row;
+    justify-content: space-between;
   }
-  to {
-    transform: rotate(360deg);
+
+  .input-field {
+    flex: 1;
+    margin-right: 10px;
   }
+
+  .input-field:last-child {
+    margin-right: 0;
+  }
+
+  .search-button {
+    flex-shrink: 0;
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-container {
+    padding: 5px;
+  }
+
+  .input-field {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .search-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .map-container {
+    min-height: 300px;
+  }
+}
+
+/* Ensure map is responsive */
+#map {
+  height: 100%;
+  width: 100%;
 }
